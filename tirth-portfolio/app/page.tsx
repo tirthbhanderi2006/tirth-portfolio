@@ -45,7 +45,9 @@ const TypewriterText = ({ text, className = "", delay = 50 }: { text: string, cl
     setDisplayText("");
     const interval = setInterval(() => {
       if (i < text.length) {
-        setDisplayText((prev) => prev + text.charAt(i));
+        // Use slice to ensure we are setting the exact string up to index i+1
+        // This prevents issues with double characters in React Strict Mode which can happen with (prev) => prev + char
+        setDisplayText(text.slice(0, i + 1));
         i++;
       } else {
         clearInterval(interval);
