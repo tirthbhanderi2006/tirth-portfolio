@@ -1,22 +1,22 @@
 // Portfolio Data
 export const personalInfo = {
     name: "Tirth Bhanderi",
-    title: "AI & ML Engineering Student | Android & Flutter Developer",
+    title: "AI Software Engineer | SDE",
     email: "bhanderitirth940@gmail.com",
     phone: "+91 9737006181",
     location: "Rajkot, Gujarat, India",
     linkedin: "https://www.linkedin.com/in/tirth-bhanderi-345763289/",
     github: "https://github.com/tirthbhanderi2006",
     resumeUrl: "/resume/tirth_resume (1).pdf",
-    bio: "AI and ML Engineering student and proficient Android and Flutter Developer with experience in Java, Python, and Spring Boot development.",
-    profileImage: "/profile.jpg"
+    bio: "AI Software Engineer and proficient Android & Flutter Developer with experience in Java, Python, and Spring Boot development.",
+    profileImage: "/tirth.jpeg"
 };
 
 export const skills = {
     languages: ["Java", "Python", "JavaScript", "Dart", "SQL"],
-    frameworks: ["Flutter", "Android SDK", "Spring Core", "Spring Boot", "GetX", "Bloc/Cubit"],
-    database: ["MySQL", "MongoDB", "Firebase (Firestore, Realtime Database)", "SQLite", "REST API Integration"],
-    tools: ["Git", "GitHub", "Retrieval Augmented Generation (RAG)"]
+    frameworks: ["Spring Core", "Spring Boot", "Flutter", "Android SDK",],
+    database: ["MySQL", "MongoDB", "Firebase", "PostgreSQL", "REST API"],
+    tools: ["Git", "GitHub", "RAG (LLMs)", "LangChain"]
 };
 
 export const experience = [
@@ -42,7 +42,7 @@ export const education = [
         id: 1,
         institution: "CHARUSAT",
         degree: "Bachelor of Technology in Artificial Intelligence and Machine Learning",
-        duration: "Expected 2027",
+        duration: "Expected 2029",
         location: "Gujarat, India",
         grade: "Pursuing"
     },
