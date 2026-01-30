@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
   SiJavascript, SiPython, SiOpenjdk, SiDart, SiMysql,
   SiFlutter, SiAndroid, SiSpring, SiSpringboot, SiFirebase, SiMongodb,
@@ -190,12 +191,27 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 px-8 pb-12">
-              <div className="border-4 border-current p-2 shadow-inner relative min-h-[300px] flex items-center justify-center overflow-hidden sepia bg-[url('/tirth.jpeg')] bg-cover bg-center">
-                {/* Fallback IF image fails or isn't there, display Initials */}
-                <div className="absolute inset-0 bg-black/20"></div>
-                {!personalInfo.profileImage && <div className="text-9xl font-[Rye] opacity-20">TB</div>}
+              <div className="border-4 border-current p-2 shadow-inner relative min-h-[300px] flex items-center justify-center overflow-hidden sepia">
+                {/* Profile Image with Optimization */}
+                {personalInfo.profileImage ? (
+                  <Image
+                    src={personalInfo.profileImage}
+                    alt={personalInfo.name}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-[#3a3a3a] flex items-center justify-center">
+                    <span className="text-9xl font-[Rye] opacity-20">TB</span>
+                  </div>
+                )}
 
-                <div className="absolute top-8 -right-2 text-center font-[Rye] text-lg md:text-xl text-[var(--rdr-red)] rotate-12 border-4 border-double border-[var(--rdr-red)] px-3 py-1 high-honor-glow opacity-90 shadow-sm bg-[#e3dac9]/10 backdrop-blur-[1px]">OPEN TO WORK</div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/20 z-10"></div>
+
+                <div className="absolute top-8 -right-2 z-20 text-center font-[Rye] text-lg md:text-xl text-[var(--rdr-red)] rotate-12 border-4 border-double border-[var(--rdr-red)] px-3 py-1 high-honor-glow opacity-90 shadow-sm bg-[#e3dac9]/10 backdrop-blur-[1px]">OPEN TO WORK</div>
               </div>
 
               <div className="flex flex-col justify-center space-y-6">
