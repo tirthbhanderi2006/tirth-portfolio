@@ -72,8 +72,8 @@ export const projects = [
         image: "/projects/openly.jpg",
         technologies: ["Flutter", "Firebase", "Firestore", "Cloud Storage", "Real-time Database", "Firebase Authentication"],
         liveUrl: "#",
-        githubUrl: "https://github.com/tirthbhanderi2006",
-        featured: true,
+        githubUrl: "https://github.com/tirthbhanderi2006/openly",
+        featured: false,
         highlights: [
             "Real-time video calling and chat functionality",
             "Firebase Authentication and Cloud Storage integration",
@@ -83,13 +83,13 @@ export const projects = [
     },
     {
         id: 2,
-        title: "CivicCinnect",
-        description: "CivicCinnect is a Pothole Reporting Web Application that empowers citizens to report and track potholes in their area.",
+        title: "CivicConnect",
+        description: "CivicConnect is a Pothole Reporting Web Application that empowers citizens to report and track potholes in their area.",
         image: "/projects/openly.jpg",
-        technologies: ["Flutter", "Express", "Next.js", "Postgrace", "YOLOv5", "Cloudnary"],
+        technologies: ["Flutter", "Express", "Next.js", "PostgreSQL", "YOLOv5", "Cloudinary"],
         liveUrl: "#",
         githubUrl: "https://github.com/tirthbhanderi2006",
-        featured: true,
+        featured: false,
         highlights: [
             "User Authentication: Secure login and registration system",
             "Pothole Reporting: Intuitive form for users to report potholes with location and description Through mobile and web platforms",
