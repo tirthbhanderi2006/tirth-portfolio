@@ -187,8 +187,8 @@ export default function Home() {
 
             <div className="pt-8 pb-4 text-center border-b-2 border-current mb-8 mx-8">
               <h1 className="text-6xl md:text-8xl font-[Rye] mb-2 text-[var(--rdr-red)]">WANTED</h1>
-              <div className="font-[Courier Prime] text-xl tracking-widest uppercase opacity-80">
-                <TypewriterText text="Exceptional Engineer" delay={50} />
+              <div className="font-[Courier Prime] text-xl tracking-widest opacity-80">
+                <TypewriterText text="EXCEPTIONAL ENGINEER" delay={50} />
               </div>
             </div>
 

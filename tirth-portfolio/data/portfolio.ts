@@ -34,7 +34,7 @@ export const experience = [
             "Built core functionality for profile editing and a bookmarking system to improve user engagement"
         ],
         technologies: ["Flutter", "Firebase", "Firestore", "Cloud Storage"]
-    }
+    },
 ];
 
 export const education = [
@@ -79,6 +79,25 @@ export const projects = [
             "Firebase Authentication and Cloud Storage integration",
             "Profile editing and bookmarking system",
             "Content discovery and post sharing features"
+        ]
+    },
+    {
+        id: 1,
+        title: "CivicCinnect",
+        description: "CivicCinnect is a Pothole Reporting Web Application that empowers citizens to report and track potholes in their area.",
+        image: "/projects/openly.jpg",
+        technologies: ["Flutter", "Express", "Next.js", "Postgrace", "YOLOv5","Cloudnary"],
+        liveUrl: "#",
+        githubUrl: "https://github.com/tirthbhanderi2006",
+        featured: true,
+        highlights: [
+            "User Authentication: Secure login and registration system",
+            "Pothole Reporting: Intuitive form for users to report potholes with location and description Through mobile and web platforms",
+            "AI-Powered Image Analysis: Utilizes AI to analyze uploaded images of potholes for severity assessment and duplication detection",
+            "Admin Dashboard: Comprehensive dashboard for municipal authorities to manage and address reported potholes and assign repair tasks to teams.",
+            "Real-time Updates: Notifications and status updates for users on their reported potholes",
+            "Map Integration: Interactive map displaying reported potholes for easy visualization and tracking",
+            "Responsive Design: Optimized for both desktop and mobile devices"
         ]
     }
 ];
