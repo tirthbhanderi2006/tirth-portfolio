@@ -17,9 +17,9 @@ module.exports = {
         'rdr-ink': '#0f0f0f',
       },
       fontFamily: {
-        rye: ['Rye', 'serif'],
-        typewriter: ['Courier Prime', 'monospace'],
-        serif: ['Crimson Text', 'serif'],
+        rye: ['var(--font-rye)', 'serif'],
+        typewriter: ['var(--font-courier-prime)', 'monospace'],
+        serif: ['var(--font-crimson-text)', 'serif'],
       },
       backgroundImage: {
         'paper-texture': "url('https://www.transparenttextures.com/patterns/aged-paper.png')",

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import {
   SiJavascript, SiPython, SiOpenjdk, SiDart, SiMysql,
   SiFlutter, SiAndroid, SiSpring, SiSpringboot, SiFirebase, SiMongodb,
-  SiGit, SiGithub, SiLinkedin, SiGmail, SiPostgresql, SiOpenai
+  SiGit, SiGithub, SiLinkedin, SiGmail, SiPostgresql, SiOpenai,
+  SiInstagram
 } from 'react-icons/si';
 import { HiCode, HiDatabase, HiCog, HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiLightningBolt, HiServer, HiCube, HiSun, HiMoon, HiBriefcase } from 'react-icons/hi';
 import { GiStagHead, GiRevolver, GiNotebook, GiPoliceBadge } from 'react-icons/gi';
@@ -524,6 +525,9 @@ export default function Home() {
                 </a>
                 <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
                   <SiGithub className="w-8 h-8" />
+                </a>
+                <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
+                  <SiInstagram className="w-8 h-8" />
                 </a>
               </div>
             </div>

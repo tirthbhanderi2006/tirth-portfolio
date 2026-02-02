@@ -42,7 +42,7 @@ export const education = [
         id: 1,
         institution: "CHARUSAT",
         degree: "Bachelor of Technology in Artificial Intelligence and Machine Learning",
-        duration: "Expected 2029",
+        duration: "Expected 2028",
         location: "Gujarat, India",
         grade: "Pursuing"
     },
@@ -105,5 +105,6 @@ export const projects = [
 export const socialLinks = {
     linkedin: "https://www.linkedin.com/in/tirth-bhanderi-345763289/",
     github: "https://github.com/tirthbhanderi2006",
-    email: "mailto:bhanderitirth940@gmail.com"
+    email: "mailto:bhanderitirth940@gmail.com",
+    instagram:"https://www.instagram.com/tirth_bhanderi_7_/"
 };
