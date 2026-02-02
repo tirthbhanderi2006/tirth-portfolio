@@ -9,7 +9,7 @@ import {
   SiInstagram
 } from 'react-icons/si';
 import { HiCode, HiDatabase, HiCog, HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiLightningBolt, HiServer, HiCube, HiSun, HiMoon, HiBriefcase } from 'react-icons/hi';
-import { GiStagHead, GiRevolver, GiNotebook, GiPoliceBadge } from 'react-icons/gi';
+import { GiStagHead, GiRevolver, GiNotebook, GiPoliceBadge, GiDeer } from 'react-icons/gi';
 import { personalInfo, skills, experience, education, projects, socialLinks } from '@/data/portfolio';
 
 // Icon mapping for tech stack
@@ -35,7 +35,8 @@ const techIcons: Record<string, any> = {
   'GitHub': SiGithub,
   'RAG (LLMs)': SiOpenai,
   'LangChain': HiCode,
-};
+  'Microservices': HiServer,
+}
 
 // Typewriter Component
 const TypewriterText = ({ text, className = "", delay = 50 }: { text: string, className?: string, delay?: number }) => {
@@ -117,17 +118,17 @@ export default function Home() {
         <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/aged-paper.png')" }}></div>
         <div className="w-full max-w-[90%] md:max-w-md px-4 md:px-8 relative z-10 text-center h-[200px] flex flex-col items-center justify-center">
           <div className="flex justify-center mb-6 text-[#8a0303]">
-            <GiRevolver className="w-16 h-16 animate-pulse" />
+            <GiDeer className="w-16 h-16 animate-pulse" />
           </div>
-          <h2 className="text-3xl font-[Rye] text-[#8a0303] mb-4 tracking-widest">LOADING PROVISIONS</h2>
-          <div className="h-4 border-2 border-[#1a1a1a] p-0.5 rounded-sm w-full">
+          <h2 className="text-3xl font-rye text-[#8a0303] mb-4 tracking-widest">LOADING PROVISIONS</h2>
+          <div className="h-6 w-full border-2 border-[#1a1a1a] p-1">
             <div
-              className="h-full bg-[#1a1a1a] transition-all duration-100"
-              style={{ width: `${loadingProgress}%` }}
+              className="h-full"
+              style={{ width: `${loadingProgress}%`, backgroundColor: '#8a0303' }}
             />
           </div>
-          <div className="mt-2 text-[#4a3728] font-[Courier Prime] text-sm h-6">
-            <span className="font-[Courier Prime] text-sm tracking-widest">{loadingProgress}% COMPLETE</span>
+          <div className="mt-2 text-[#4a3728] font-typewriter text-sm h-6">
+            <span className="font-typewriter text-sm tracking-widest">{loadingProgress}% COMPLETE</span>
           </div>
         </div>
       </div>
@@ -144,7 +145,7 @@ export default function Home() {
             <div className="bg-[var(--rdr-red)] text-white p-1 rounded-full">
               <GiStagHead className="w-6 h-6" />
             </div>
-            <span className="font-[Rye] text-2xl">TB</span>
+            <span className="font-rye text-2xl">TB</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -156,7 +157,7 @@ export default function Home() {
                   else if (item === 'WORK') scrollToSection('experience');
                   else scrollToSection(item.toLowerCase());
                 }}
-                className={`text-sm font-[Rye] tracking-widest transition-all relative group ${(item === 'ACADEMIC' && activeSection === 'education') ||
+                className={`text-sm font-rye tracking-widest transition-all relative group ${(item === 'ACADEMIC' && activeSection === 'education') ||
                   (item === 'WORK' && activeSection === 'experience') ||
                   activeSection === item.toLowerCase()
                   ? 'text-[var(--rdr-red)]'
@@ -187,8 +188,8 @@ export default function Home() {
             <div className="wanted-corner bottom-2 right-2"></div>
 
             <div className="pt-8 pb-4 text-center border-b-2 border-current mb-8 mx-8">
-              <h1 className="text-6xl md:text-8xl font-[Rye] mb-2 text-[var(--rdr-red)]">WANTED</h1>
-              <div className="font-[Courier Prime] text-xl tracking-widest opacity-80">
+              <h1 className="text-6xl md:text-8xl font-rye mb-2 text-[var(--rdr-red)]">WANTED</h1>
+              <div className="font-typewriter text-xl tracking-widest opacity-80">
                 <TypewriterText text="EXCEPTIONAL ENGINEER" delay={50} />
               </div>
             </div>
@@ -207,23 +208,23 @@ export default function Home() {
                   />
                 ) : (
                   <div className="absolute inset-0 bg-[#3a3a3a] flex items-center justify-center">
-                    <span className="text-9xl font-[Rye] opacity-20">TB</span>
+                    <span className="text-9xl font-rye opacity-20">TB</span>
                   </div>
                 )}
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/20 z-10"></div>
 
-                <div className="absolute top-8 -right-2 z-20 text-center font-[Rye] text-lg md:text-xl text-[var(--rdr-red)] rotate-12 border-4 border-double border-[var(--rdr-red)] px-3 py-1 high-honor-glow opacity-90 shadow-sm bg-[#e3dac9]/10 backdrop-blur-[1px]">OPEN TO WORK</div>
+                <div className="absolute top-8 -right-2 z-20 text-center font-rye text-lg md:text-xl text-[var(--rdr-red)] rotate-12 border-4 border-double border-[var(--rdr-red)] px-3 py-1 high-honor-glow opacity-90 shadow-sm bg-[#e3dac9]/10 backdrop-blur-[1px]">OPEN TO WORK</div>
               </div>
 
               <div className="flex flex-col justify-center space-y-6">
                 <div>
-                  <h2 className="text-4xl font-[Rye] mb-1">{personalInfo.name.toUpperCase()}</h2>
-                  <p className="font-[Courier Prime] text-[var(--rdr-red)] text-lg font-bold">{personalInfo.title}</p>
+                  <h2 className="text-4xl font-rye mb-1">{personalInfo.name.toUpperCase()}</h2>
+                  <p className="font-typewriter text-[var(--rdr-red)] text-lg font-bold">{personalInfo.title}</p>
                 </div>
 
-                <p className="font-[Crimson Text] text-xl leading-relaxed italic opacity-90">
+                <p className="font-serif text-xl leading-relaxed italic opacity-90">
                   "{personalInfo.bio}"
                 </p>
 
@@ -236,9 +237,9 @@ export default function Home() {
                         {/* <span className="text-[8px] font-bold mt-1 text-[#4a3728]">HIGH</span> */}
                       </div>
                     </div>
-                    {/* <span className="font-[Rye] text-sm tracking-widest text-[var(--rdr-red)]">HIGH HONOR</span> */}
+                    {/* <span className="font-rye text-sm tracking-widest text-[var(--rdr-red)]">HIGH HONOR</span> */}
                   </div>
-                  {/* <div className="mt-2 text-xs font-[Courier Prime] opacity-60">Verified Developer</div> */}
+                  {/* <div className="mt-2 text-xs font-typewriter opacity-60">Verified Developer</div> */}
                 </div>
 
               </div>
@@ -250,7 +251,7 @@ export default function Home() {
                 <span className="text-2xl text-[var(--rdr-red)]">★</span>
                 <span className="text-2xl text-[var(--rdr-red)]">★</span>
               </div>
-              <p className="font-[Courier Prime] italic text-xs mb-4">"I have a plan... to write great code."</p>
+              <p className="font-typewriter italic text-xs mb-4">"I have a plan... to write great code."</p>
               <div className="flex flex-col md:flex-row justify-center gap-4 px-4 md:px-0">
                 <button onClick={() => scrollToSection('contact')} className="western-btn w-full md:w-auto">
                   Send Telegram
@@ -268,14 +269,14 @@ export default function Home() {
         <section id="skills" className="relative">
           <div className="section-divider"></div>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-[Rye] mb-4">COLLECTOR'S CARDS</h2>
-            <p className="font-[Courier Prime] opacity-80">Fine Equipment & Rare Abilities</p>
+            <h2 className="text-5xl font-rye mb-4">COLLECTOR'S CARDS</h2>
+            <p className="font-typewriter opacity-80">Fine Equipment & Rare Abilities</p>
           </div>
 
           <div className="space-y-12">
             {/* Languages Row */}
             <div>
-              <h3 className="text-2xl font-[Rye] mb-6 border-b border-current inline-block pb-2">Languages</h3>
+              <h3 className="text-2xl font-rye mb-6 border-b border-current inline-block pb-2">Languages</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                 {skills.languages.map((skill) => {
                   const Icon = techIcons[skill];
@@ -291,8 +292,8 @@ export default function Home() {
                         <div className="mb-3 text-[var(--rdr-red)]">
                           {Icon ? <Icon className="w-12 h-12" /> : <GiNotebook className="w-12 h-12" />}
                         </div>
-                        <div className="font-[Rye] text-base font-bold text-[#1a1a1a]">{skill}</div>
-                        {/* <div className="text-[10px] uppercase font-[Courier Prime] mt-1 opacity-60 text-[#1a1a1a]">Rank 10</div> */}
+                        <div className="font-rye text-base font-bold text-[#1a1a1a]">{skill}</div>
+                        {/* <div className="text-[10px] uppercase font-typewriter mt-1 opacity-60 text-[#1a1a1a]">Rank 10</div> */}
                       </div>
                     </div>
                   );
@@ -302,7 +303,7 @@ export default function Home() {
 
             {/* Frameworks Row - Ability Cards */}
             <div>
-              <h3 className="text-2xl font-[Rye] mb-6 border-b border-current inline-block pb-2">Abilities (Frameworks)</h3>
+              <h3 className="text-2xl font-rye mb-6 border-b border-current inline-block pb-2">Abilities (Frameworks)</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {skills.frameworks.map((skill) => {
                   const Icon = techIcons[skill];
@@ -318,8 +319,8 @@ export default function Home() {
                         <div className="mb-3 text-[var(--rdr-red)]">
                           {Icon ? <Icon className="w-12 h-12" /> : <GiPoliceBadge className="w-12 h-12" />}
                         </div>
-                        <div className="font-[Rye] text-base font-bold">{skill}</div>
-                        {/* <div className="text-[10px] uppercase font-[Courier Prime] mt-1 opacity-60">Signature Ability</div> */}
+                        <div className="font-rye text-base font-bold">{skill}</div>
+                        {/* <div className="text-[10px] uppercase font-typewriter mt-1 opacity-60">Signature Ability</div> */}
                       </div>
                     </div>
                   );
@@ -329,7 +330,7 @@ export default function Home() {
 
             {/* Tools Row */}
             <div>
-              <h3 className="text-2xl font-[Rye] mb-6 border-b border-current inline-block pb-2">Satchel Items (Tools)</h3>
+              <h3 className="text-2xl font-rye mb-6 border-b border-current inline-block pb-2">Satchel Items (Tools)</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[...skills.database, ...skills.tools].map((skill) => {
                   const Icon = techIcons[skill];
@@ -338,7 +339,7 @@ export default function Home() {
                       <div className="text-[var(--rdr-red)]">
                         {Icon ? <Icon className="w-6 h-6" /> : <GiRevolver className="w-6 h-6" />}
                       </div>
-                      <span className="font-[Courier Prime] font-bold text-sm">{skill}</span>
+                      <span className="font-typewriter font-bold text-sm">{skill}</span>
                     </div>
                   );
                 })}
@@ -351,8 +352,8 @@ export default function Home() {
         <section id="education" className="relative">
           <div className="section-divider"></div>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-[Rye] mb-4">ACADEMIC RECORDS</h2>
-            <p className="font-[Courier Prime] opacity-80">Certified & Verified</p>
+            <h2 className="text-5xl font-rye mb-4">ACADEMIC RECORDS</h2>
+            <p className="font-typewriter opacity-80">Certified & Verified</p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-8">
@@ -365,19 +366,19 @@ export default function Home() {
                   <div className="absolute -top-3 right-8 w-4 h-8 border-2 border-current border-b-0 rounded-t-full bg-gray-400 opacity-50"></div>
 
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 className="text-xl font-[Rye]">{edu.institution}</h3>
-                    <span className="font-[Courier Prime] text-xs bg-[var(--rdr-black)] text-[var(--rdr-paper)] px-2 py-1 rounded">
+                    <h3 className="text-xl font-rye">{edu.institution}</h3>
+                    <span className="font-typewriter text-xs bg-[var(--rdr-black)] text-[var(--rdr-paper)] px-2 py-1 rounded">
                       {edu.duration}
                     </span>
                   </div>
 
-                  <div className="font-[Courier Prime] font-bold text-[var(--rdr-red)] mb-2 text-sm">{edu.degree}</div>
+                  <div className="font-typewriter font-bold text-[var(--rdr-red)] mb-2 text-sm">{edu.degree}</div>
 
                   <div className="flex justify-between items-center mt-4 pt-4 border-t border-current/20">
-                    <div className="flex items-center gap-2 opacity-80 text-sm font-[Courier Prime]">
+                    <div className="flex items-center gap-2 opacity-80 text-sm font-typewriter">
                       <HiLocationMarker /> {edu.location}
                     </div>
-                    <div className="font-[Rye] text-sm">
+                    <div className="font-rye text-sm">
                       Status: <span className="text-[var(--rdr-red)]">{edu.grade}</span>
                     </div>
                   </div>
@@ -392,8 +393,8 @@ export default function Home() {
         <section id="projects">
           <div className="section-divider"></div>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-[Rye] mb-4">CASE FILES</h2>
-            <p className="font-[Courier Prime] opacity-80">Past Bounties Collected</p>
+            <h2 className="text-5xl font-rye mb-4">CASE FILES</h2>
+            <p className="font-typewriter opacity-80">Past Bounties Collected</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
@@ -406,24 +407,24 @@ export default function Home() {
                 <div className="border border-current p-6 h-full flex flex-col relative overflow-hidden">
                   {/* Stamp overlay */}
                   <div className="absolute -right-4 -top-4 w-24 h-24 border-4 border-[var(--rdr-red)] rounded-full flex items-center justify-center opacity-20 transform rotate-12 group-hover:opacity-100 transition-opacity">
-                    <span className="font-[Rye] text-[var(--rdr-red)] text-xs transform -rotate-12">SOLVED</span>
+                    <span className="font-rye text-[var(--rdr-red)] text-xs transform -rotate-12">SOLVED</span>
                   </div>
 
-                  <h3 className="text-2xl font-[Rye] mb-2 border-b border-current inline-block self-start pb-1">{project.title}</h3>
-                  <p className="font-[Crimson Text] text-lg mb-4 flex-grow line-clamp-3 opacity-90">
+                  <h3 className="text-2xl font-rye mb-2 border-b border-current inline-block self-start pb-1">{project.title}</h3>
+                  <p className="font-serif text-lg mb-4 flex-grow line-clamp-3 opacity-90">
                     {project.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mt-4">
                     {project.technologies.slice(0, 4).map(tech => (
-                      <span key={tech} className="bg-[var(--rdr-black)] text-[var(--rdr-paper)] px-2 py-0.5 text-xs font-[Courier Prime] uppercase tracking-wider">
+                      <span key={tech} className="bg-[var(--rdr-black)] text-[var(--rdr-paper)] px-2 py-0.5 text-xs font-typewriter uppercase tracking-wider">
                         {tech}
                       </span>
                     ))}
                   </div>
 
                   <div className="mt-6 text-right">
-                    <span className="font-[Rye] text-[var(--rdr-red)] underline decoration-wavy group-hover:no-underline">Inspect File &rarr;</span>
+                    <span className="font-rye text-[var(--rdr-red)] underline decoration-wavy group-hover:no-underline">Inspect File &rarr;</span>
                   </div>
                 </div>
               </div>
@@ -437,8 +438,8 @@ export default function Home() {
         <section id="experience" className="relative">
           <div className="section-divider"></div>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-[Rye] mb-4">WORK HISTORY</h2>
-            <p className="font-[Courier Prime] opacity-80">Proven Track Record</p>
+            <h2 className="text-5xl font-rye mb-4">WORK HISTORY</h2>
+            <p className="font-typewriter opacity-80">Proven Track Record</p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-12">
@@ -454,22 +455,22 @@ export default function Home() {
 
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b border-current pb-4">
                     <div>
-                      <h3 className="text-2xl font-[Rye]">{job.company}</h3>
-                      <div className="font-[Courier Prime] text-[var(--rdr-red)] font-bold mb-1">{job.position}</div>
+                      <h3 className="text-2xl font-rye">{job.company}</h3>
+                      <div className="font-typewriter text-[var(--rdr-red)] font-bold mb-1">{job.position}</div>
                     </div>
                     <div className="text-right">
-                      <span className="font-[Courier Prime] text-xs bg-[var(--rdr-black)] text-[#e3dac9] px-2 py-1 rounded block mb-1">
+                      <span className="font-typewriter text-xs bg-[var(--rdr-black)] text-[#e3dac9] px-2 py-1 rounded block mb-1">
                         {job.duration}
                       </span>
-                      <span className="text-xs font-[Courier Prime] opacity-70">{job.type}</span>
+                      <span className="text-xs font-typewriter opacity-70">{job.type}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-6 opacity-80 text-sm font-[Courier Prime]">
+                  <div className="flex items-center gap-2 mb-6 opacity-80 text-sm font-typewriter">
                     <HiLocationMarker /> {job.location}
                   </div>
 
-                  <ul className="list-disc pl-5 space-y-2 font-[Crimson Text] text-lg mb-6 leading-relaxed">
+                  <ul className="list-disc pl-5 space-y-2 font-serif text-lg mb-6 leading-relaxed">
                     {job.description.map((desc, i) => (
                       <li key={i}>{desc}</li>
                     ))}
@@ -477,7 +478,7 @@ export default function Home() {
 
                   <div className="flex flex-wrap gap-2 pt-4 border-t border-current/20">
                     {job.technologies.map((tech) => (
-                      <span key={tech} className="text-xs font-[Courier Prime] border border-current px-2 py-1 rounded-sm opacity-70">
+                      <span key={tech} className="text-xs font-typewriter border border-current px-2 py-1 rounded-sm opacity-70">
                         {tech}
                       </span>
                     ))}
@@ -494,8 +495,8 @@ export default function Home() {
           <div className="section-divider"></div>
           <div className="max-w-2xl mx-auto bg-[var(--bg-paper)] border-4 border-double border-current p-8 md:p-12 shadow-2xl transform -rotate-1">
             <div className="text-center mb-8 border-b border-current pb-4">
-              <h2 className="text-4xl font-[Rye]">TELEGRAM OFFICE</h2>
-              <p className="font-[Courier Prime] mt-2">Send a wire to {personalInfo.name}</p>
+              <h2 className="text-4xl font-rye">TELEGRAM OFFICE</h2>
+              <p className="font-typewriter mt-2">Send a wire to {personalInfo.name}</p>
             </div>
 
             <div className="space-y-6">
@@ -503,7 +504,7 @@ export default function Home() {
                 <div className="w-12 h-12 flex items-center justify-center border-r border-current group-hover:border-[var(--rdr-paper)]">
                   <HiMail className="w-6 h-6" />
                 </div>
-                <div className="font-[Courier Prime]">
+                <div className="font-typewriter">
                   <div className="text-xs opacity-60 uppercase">Address To</div>
                   <div className="text-lg font-bold break-all">{personalInfo.email}</div>
                 </div>
@@ -513,7 +514,7 @@ export default function Home() {
                 <div className="w-12 h-12 flex items-center justify-center border-r border-current group-hover:border-[var(--rdr-paper)]">
                   <HiPhone className="w-6 h-6" />
                 </div>
-                <div className="font-[Courier Prime]">
+                <div className="font-typewriter">
                   <div className="text-xs opacity-60 uppercase">Wire To</div>
                   <div className="text-lg font-bold">{personalInfo.phone}</div>
                 </div>
@@ -536,7 +537,7 @@ export default function Home() {
 
       </main>
 
-      {/* <footer className="bg-[#1a1a1a] text-[#e3dac9] py-8 text-center font-[Courier Prime] text-sm mt-12 border-t-8 border-[var(--rdr-red)]">
+      {/* <footer className="bg-[#1a1a1a] text-[#e3dac9] py-8 text-center font-typewriter text-sm mt-12 border-t-8 border-[var(--rdr-red)]">
         <p>&copy; 2026 {personalInfo.name}.</p>
       </footer> */}
 
@@ -545,16 +546,16 @@ export default function Home() {
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
           <div className="bg-[#f0e6d2] max-w-2xl w-full border-4 border-current p-1 shadow-2xl" onClick={e => e.stopPropagation()}>
             <div className="border border-current p-6 relative">
-              <button className="absolute top-2 right-4 text-3xl font-[Rye] hover:text-[var(--rdr-red)]" onClick={() => setSelectedProject(null)}>&times;</button>
+              <button className="absolute top-2 right-4 text-3xl font-rye hover:text-[var(--rdr-red)]" onClick={() => setSelectedProject(null)}>&times;</button>
 
-              <h2 className="text-3xl font-[Rye] mb-1">{selectedProject.title}</h2>
+              <h2 className="text-3xl font-rye mb-1">{selectedProject.title}</h2>
               <div className="w-full h-1 bg-[var(--rdr-black)] mb-4"></div>
 
-              <p className="font-[Crimson Text] text-lg mb-6">{selectedProject.description}</p>
+              <p className="font-serif text-lg mb-6">{selectedProject.description}</p>
 
               <div className="mb-6">
-                <h4 className="font-[Rye] text-lg mb-2">Evidence & Highlights:</h4>
-                <ul className="list-disc pl-6 space-y-1 font-[Courier Prime] text-sm">
+                <h4 className="font-rye text-lg mb-2">Evidence & Highlights:</h4>
+                <ul className="list-disc pl-6 space-y-1 font-typewriter text-sm">
                   {selectedProject.highlights.map((h: string, i: number) => (
                     <li key={i}>{h}</li>
                   ))}
@@ -565,7 +566,7 @@ export default function Home() {
                 {selectedProject.technologies.map((tech: string) => {
                   const Icon = techIcons[tech];
                   return (
-                    <span key={tech} className="bg-[var(--rdr-red)] text-white px-2 py-1 text-xs font-[Courier Prime] uppercase flex items-center gap-2">
+                    <span key={tech} className="bg-[var(--rdr-red)] text-white px-2 py-1 text-xs font-typewriter uppercase flex items-center gap-2">
                       {Icon && <Icon className="w-3 h-3 text-white" />}
                       {tech}
                     </span>
