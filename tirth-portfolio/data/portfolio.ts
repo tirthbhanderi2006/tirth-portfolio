@@ -82,11 +82,11 @@ export const projects = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         title: "CivicCinnect",
         description: "CivicCinnect is a Pothole Reporting Web Application that empowers citizens to report and track potholes in their area.",
         image: "/projects/openly.jpg",
-        technologies: ["Flutter", "Express", "Next.js", "Postgrace", "YOLOv5","Cloudnary"],
+        technologies: ["Flutter", "Express", "Next.js", "Postgrace", "YOLOv5", "Cloudnary"],
         liveUrl: "#",
         githubUrl: "https://github.com/tirthbhanderi2006",
         featured: true,
