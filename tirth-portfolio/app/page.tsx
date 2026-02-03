@@ -63,8 +63,8 @@ const TypewriterText = ({ text, className = "", delay = 50 }: { text: string, cl
 };
 
 export default function Home() {
+
   const [isLoaded, setIsLoaded] = useState(false);
-  const [loadingProgress, setLoadingProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('home');
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
@@ -91,18 +91,14 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setLoadingProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => setIsLoaded(true), 500);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 20);
-    return () => clearInterval(interval);
+    // Simple timeout for loader since we removed the progress percentage
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 2500);
+    return () => clearTimeout(timer);
   }, []);
+
+
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -116,20 +112,11 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#e3dac9] relative overflow-hidden text-[#1a1a1a]">
         <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/aged-paper.png')" }}></div>
-        <div className="w-full max-w-[90%] md:max-w-md px-4 md:px-8 relative z-10 text-center h-[200px] flex flex-col items-center justify-center">
-          <div className="flex justify-center mb-6 text-[#8a0303]">
-            <GiDeer className="w-16 h-16 animate-pulse" />
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="text-[#8a0303] mb-6">
+            <GiDeer className="w-24 h-24 animate-pulse" />
           </div>
-          <h2 className="text-3xl font-rye text-[#8a0303] mb-4 tracking-widest">LOADING PROVISIONS</h2>
-          <div className="h-6 w-full border-2 border-[#1a1a1a] p-1">
-            <div
-              className="h-full"
-              style={{ width: `${loadingProgress}%`, backgroundColor: '#8a0303' }}
-            />
-          </div>
-          <div className="mt-2 text-[#4a3728] font-typewriter text-sm h-6">
-            <span className="font-typewriter text-sm tracking-widest">{loadingProgress}% COMPLETE</span>
-          </div>
+          <h2 className="text-2xl font-rye text-[#8a0303] tracking-widest animate-pulse">LOADING...</h2>
         </div>
       </div>
     );
@@ -157,27 +144,25 @@ export default function Home() {
                   else if (item === 'WORK') scrollToSection('experience');
                   else scrollToSection(item.toLowerCase());
                 }}
-                className={`text-sm font-rye tracking-widest transition-all relative group ${(item === 'ACADEMIC' && activeSection === 'education') ||
+                className={"text-sm font-rye tracking-widest transition-all relative group " + ((item === 'ACADEMIC' && activeSection === 'education') ||
                   (item === 'WORK' && activeSection === 'experience') ||
                   activeSection === item.toLowerCase()
                   ? 'text-[var(--rdr-red)]'
-                  : 'hover:text-[var(--rdr-red)]'
-                  }`}
+                  : 'hover:text-[var(--rdr-red)]')}
               >
                 {item}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[var(--rdr-red)] transition-all duration-300 ${(item === 'ACADEMIC' && activeSection === 'education') ||
+                <span className={"absolute -bottom-1 left-0 h-0.5 bg-[var(--rdr-red)] transition-all duration-300 " + ((item === 'ACADEMIC' && activeSection === 'education') ||
                   (item === 'WORK' && activeSection === 'experience') ||
                   activeSection === item.toLowerCase()
                   ? 'w-full'
-                  : 'w-0 group-hover:w-full'
-                  }`}></span>
+                  : 'w-0 group-hover:w-full')}></span>
               </button>
             ))}
           </div>
         </div>
-      </nav>
+      </nav >
 
-      <main className="pt-24 px-6 max-w-6xl mx-auto space-y-32">
+      <main className="pt-24 px-4 md:px-8 max-w-6xl mx-auto space-y-32">
 
         {/* HERO SECTION - WANTED POSTER STYLE */}
         <section id="home" className="min-h-[85vh] flex flex-col items-center justify-center">
@@ -188,13 +173,13 @@ export default function Home() {
             <div className="wanted-corner bottom-2 right-2"></div>
 
             <div className="pt-8 pb-4 text-center border-b-2 border-current mb-8 mx-8">
-              <h1 className="text-6xl md:text-8xl font-rye mb-2 text-[var(--rdr-red)]">WANTED</h1>
+              <h1 className="text-5xl md:text-8xl font-rye mb-2 text-[var(--rdr-red)]">WANTED</h1>
               <div className="font-typewriter text-xl tracking-widest opacity-80">
                 <TypewriterText text="EXCEPTIONAL ENGINEER" delay={50} />
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 px-8 pb-12">
+            <div className="grid md:grid-cols-2 gap-8 px-4 md:px-8 pb-8 md:pb-12">
               <div className="border-4 border-current p-2 shadow-inner relative min-h-[300px] flex items-center justify-center overflow-hidden sepia">
                 {/* Profile Image with Optimization */}
                 {personalInfo.profileImage ? (
@@ -220,7 +205,7 @@ export default function Home() {
 
               <div className="flex flex-col justify-center space-y-6">
                 <div>
-                  <h2 className="text-4xl font-rye mb-1">{personalInfo.name.toUpperCase()}</h2>
+                  <h2 className="text-3xl md:text-4xl font-rye mb-1">{personalInfo.name.toUpperCase()}</h2>
                   <p className="font-typewriter text-[var(--rdr-red)] text-lg font-bold">{personalInfo.title}</p>
                 </div>
 
@@ -361,7 +346,7 @@ export default function Home() {
               <div key={edu.id} className="relative pl-8 border-l-4 border-[var(--rdr-red)] py-2">
                 <div className="absolute -left-[11px] top-0 w-5 h-5 bg-[var(--rdr-red)] rounded-full border-4 border-[var(--bg-paper)]"></div>
 
-                <div className="bg-[var(--bg-paper)] p-6 border border-current shadow-md relative group hover:-translate-y-1 transition-transform">
+                <div className="bg-[var(--bg-paper)] p-4 md:p-6 border border-current shadow-md relative group hover:-translate-y-1 transition-transform">
                   {/* Paper Clip Visual */}
                   <div className="absolute -top-3 right-8 w-4 h-8 border-2 border-current border-b-0 rounded-t-full bg-gray-400 opacity-50"></div>
 
@@ -444,10 +429,10 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto space-y-12">
             {experience.map((job) => (
-              <div key={job.id} className="relative pl-8 border-l-4 border-[var(--rdr-red)] py-2">
+              <div key={job.id} className="relative pl-4 md:pl-8 border-l-4 border-[var(--rdr-red)] py-2">
                 <div className="absolute -left-[11px] top-0 w-5 h-5 bg-[var(--rdr-red)] rounded-full border-4 border-[var(--bg-paper)]"></div>
 
-                <div className="bg-[#e3dac9] bg-paper-texture p-8 border border-current shadow-md relative group hover:-translate-y-1 transition-transform">
+                <div className="bg-[#e3dac9] bg-paper-texture p-4 md:p-8 border border-current shadow-md relative group hover:-translate-y-1 transition-transform">
                   {/* Badge/Seal */}
                   <div className="absolute -top-4 -right-4 bg-[var(--rdr-red)] text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg transform rotate-12">
                     <HiBriefcase className="w-6 h-6" />
@@ -542,53 +527,58 @@ export default function Home() {
       </footer> */}
 
       {/* MODAL */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
-          <div className="bg-[#f0e6d2] max-w-2xl w-full border-4 border-current p-1 shadow-2xl" onClick={e => e.stopPropagation()}>
-            <div className="border border-current p-6 relative">
-              <button className="absolute top-2 right-4 text-3xl font-rye hover:text-[var(--rdr-red)]" onClick={() => setSelectedProject(null)}>&times;</button>
+      {
+        selectedProject && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
+            <div
+              className="bg-[#f0e6d2] max-w-2xl w-full border-4 border-current p-1 shadow-2xl max-h-[90vh] overflow-y-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="border border-current p-4 md:p-6 relative">
+                <button className="absolute top-2 right-2 md:right-4 text-2xl md:text-3xl font-rye hover:text-[var(--rdr-red)]" onClick={() => setSelectedProject(null)}>&times;</button>
 
-              <h2 className="text-3xl font-rye mb-1">{selectedProject.title}</h2>
-              <div className="w-full h-1 bg-[var(--rdr-black)] mb-4"></div>
+                <h2 className="text-2xl md:text-3xl font-rye mb-1 pr-8">{selectedProject.title}</h2>
+                <div className="w-full h-1 bg-[var(--rdr-black)] mb-4"></div>
 
-              <p className="font-serif text-lg mb-6">{selectedProject.description}</p>
+                <p className="font-serif text-base md:text-lg mb-6">{selectedProject.description}</p>
 
-              <div className="mb-6">
-                <h4 className="font-rye text-lg mb-2">Evidence & Highlights:</h4>
-                <ul className="list-disc pl-6 space-y-1 font-typewriter text-sm">
-                  {selectedProject.highlights.map((h: string, i: number) => (
-                    <li key={i}>{h}</li>
-                  ))}
-                </ul>
-              </div>
+                <div className="mb-6">
+                  <h4 className="font-rye text-base md:text-lg mb-2">Evidence & Highlights:</h4>
+                  <ul className="list-disc pl-6 space-y-1 font-typewriter text-xs md:text-sm">
+                    {selectedProject.highlights.map((h: string, i: number) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div className="flex flex-wrap gap-2 mb-8">
-                {selectedProject.technologies.map((tech: string) => {
-                  const Icon = techIcons[tech];
-                  return (
-                    <span key={tech} className="bg-[var(--rdr-red)] text-white px-2 py-1 text-xs font-typewriter uppercase flex items-center gap-2">
-                      {Icon && <Icon className="w-3 h-3 text-white" />}
-                      {tech}
-                    </span>
-                  );
-                })}
-              </div>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {selectedProject.technologies.map((tech: string) => {
+                    const Icon = techIcons[tech];
+                    return (
+                      <span key={tech} className="bg-[var(--rdr-red)] text-white px-2 py-1 text-xs font-typewriter uppercase flex items-center gap-2">
+                        {Icon && <Icon className="w-3 h-3 text-white" />}
+                        {tech}
+                      </span>
+                    );
+                  })}
+                </div>
 
-              <div className="flex gap-4">
-                <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="western-btn inline-block text-center flex-1">
-                  View Source
-                </a>
-                {selectedProject.liveUrl && (
-                  <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="western-btn-outline inline-block text-center flex-1">
-                    Launch
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="western-btn inline-block text-center flex-1 text-sm md:text-base">
+                    View Source
                   </a>
-                )}
+                  {selectedProject.liveUrl && (
+                    <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" className="western-btn-outline inline-block text-center flex-1 text-sm md:text-base">
+                      Launch
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
-    </div>
+    </div >
   );
 }
