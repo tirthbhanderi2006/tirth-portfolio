@@ -6,11 +6,13 @@ import {
   SiJavascript, SiPython, SiOpenjdk, SiDart, SiMysql,
   SiFlutter, SiAndroid, SiSpring, SiSpringboot, SiFirebase, SiMongodb,
   SiGit, SiGithub, SiLinkedin, SiGmail, SiPostgresql, SiOpenai,
-  SiInstagram, SiFlask
+  SiInstagram,
+  SiFlask
 } from 'react-icons/si';
 import { HiCode, HiDatabase, HiCog, HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiLightningBolt, HiServer, HiCube, HiSun, HiMoon, HiBriefcase } from 'react-icons/hi';
 import { GiStagHead, GiRevolver, GiNotebook, GiPoliceBadge, GiDeer } from 'react-icons/gi';
 import { personalInfo, skills, experience, education, projects, socialLinks } from '@/data/portfolio';
+import HorseCompanion from './components/HorseCompanion';
 
 // Icon mapping for tech stack
 const techIcons: Record<string, any> = {
@@ -125,6 +127,9 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen pb-20 transition-colors duration-500`}>
+
+      {/* Horse companion that follows the mouse */}
+      <HorseCompanion />
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#e3dac9]/95 backdrop-blur-sm border-b-2 border-current shadow-md py-4 transition-colors duration-300">
