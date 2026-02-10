@@ -6,7 +6,7 @@ import {
   SiJavascript, SiPython, SiOpenjdk, SiDart, SiMysql,
   SiFlutter, SiAndroid, SiSpring, SiSpringboot, SiFirebase, SiMongodb,
   SiGit, SiGithub, SiLinkedin, SiGmail, SiPostgresql, SiOpenai,
-  SiInstagram
+  SiInstagram, SiFlask
 } from 'react-icons/si';
 import { HiCode, HiDatabase, HiCog, HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiLightningBolt, HiServer, HiCube, HiSun, HiMoon, HiBriefcase } from 'react-icons/hi';
 import { GiStagHead, GiRevolver, GiNotebook, GiPoliceBadge, GiDeer } from 'react-icons/gi';
@@ -36,6 +36,7 @@ const techIcons: Record<string, any> = {
   'RAG (LLMs)': SiOpenai,
   'LangChain': HiCode,
   'Microservices': HiServer,
+  'Flask': SiFlask
 }
 
 // Typewriter Component
