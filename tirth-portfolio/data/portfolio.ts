@@ -14,7 +14,7 @@ export const personalInfo = {
 
 export const skills = {
     languages: ["Java", "Python", "JavaScript", "Dart", "SQL"],
-    frameworks: ["Spring Core", "Spring Boot", "Flutter", "Android SDK",],
+    frameworks: ["Spring Core", "Spring Boot", "Flutter", "Android SDK","Flask"],
     database: ["REST API", "Microservices", "MySQL", "MongoDB", "Firebase", "PostgreSQL"],
     tools: ["Git", "GitHub", "RAG (LLMs)", "LangChain"]
 };
