@@ -15,8 +15,8 @@ export const personalInfo = {
 export const skills = {
     languages: ["Java", "Python", "JavaScript", "Dart", "SQL"],
     frameworks: ["Spring Core", "Spring Boot", "Flutter", "Android SDK",],
-    database: [ "REST API","Microservices","MySQL", "MongoDB", "Firebase", "PostgreSQL"],
-    tools: ["Git", "GitHub", "RAG (LLMs)", "LangChain"] 
+    database: ["REST API", "Microservices", "MySQL", "MongoDB", "Firebase", "PostgreSQL"],
+    tools: ["Git", "GitHub", "RAG (LLMs)", "LangChain"]
 };
 
 export const experience = [
@@ -99,6 +99,23 @@ export const projects = [
             "Map Integration: Interactive map displaying reported potholes for easy visualization and tracking",
             "Responsive Design: Optimized for both desktop and mobile devices"
         ]
+    },
+    {
+        id: 3,
+        title: "Krushi-Netra",
+        description: "Krushi-Netra is an Android application that allows farmers to upload images of their cattle and accurately classify their breeds.",
+        image: "",
+        technologies: ["Android (Java)", "TensorFlow", "CNN", "MobileNet"],
+        liveUrl: "#",
+        githubUrl: "#",
+        featured: false,
+        highlights: [
+            "Works offline, enabling use in remote areas without internet access",
+            "Capable of classifying 12 different local Indian cattle breeds",
+            "Lightweight application optimized for low-specification devices",
+            "Robust classification performance even with low-quality and poorly lit images",
+            "Built by a farmer(made by me) specifically for the farming community"
+        ]
     }
 ];
 
@@ -106,5 +123,5 @@ export const socialLinks = {
     linkedin: "https://www.linkedin.com/in/tirth-bhanderi-345763289/",
     github: "https://github.com/tirthbhanderi2006",
     email: "mailto:bhanderitirth940@gmail.com",
-    instagram:"https://www.instagram.com/tirth_bhanderi_7_/"
+    instagram: "https://www.instagram.com/tirth_bhanderi_7_/"
 };
